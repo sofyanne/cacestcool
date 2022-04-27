@@ -5,9 +5,9 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const multer = require("multer");
 
-const authorRouter = require("./routes/authorRouter");
 const globalRouter = require("./routes/globalRouter");
 const postRouter = require("./routes/postRouter");
+const userRouter = require("./routes/userRouter");
 
 
 
@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/auteur", authorRouter);
+app.use("/user", userRouter);
 app.use("/post", postRouter);
 app.use("/", globalRouter);
 
