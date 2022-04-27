@@ -5,9 +5,10 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const multer = require("multer");
 
+const authorRouter = require("./routes/authorRouter");
 
-// const globalRouter = require("./routers/globalRouter");
-// const equipeRouter = require("./routers/equipeRouter");
+
+
 
 const app = express();
 
@@ -51,6 +52,8 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next(); // Je demande à express de passer au middleware suivant.
 });
+
+app.use("/auteur", authorRouter);
 
 
 // Les routes inconnues finiront ici, je créer une erreur et je la passe à mon prochain middleware avec next();

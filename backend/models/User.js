@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const userSchema = new mongoose.Schema({
+const userSchema = Schema({
 
     firstname : {
         type: String,
@@ -14,6 +15,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    posts : [
+        {
+            type: Schema.Types.ObjectId, ref: "Post"
+        }
+    ]
 
 });
 
