@@ -16,11 +16,7 @@ const postSchema = Schema({
   },
   like: [
     { type: Schema.Types.ObjectId, ref: "User", isLiked: { type: Boolean } },
-  ],
-  createdAt: {
-    type: Date,
-    require: true,
-  },
-});
+  ]
+}, {timestamps: true});
 
 module.exports = mongoose.model("Post", postSchema);

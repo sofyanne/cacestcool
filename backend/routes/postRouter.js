@@ -1,4 +1,5 @@
 const express = require("express");
+const PostController = require("../controllers/PostController");
 
 const postRouter = express.Router();
 
@@ -7,5 +8,7 @@ postRouter.get("/", (req, res, next) => {
     title: "Les posts",
   });
 });
+
+postRouter.post("/", PostController.createPost);
 
 module.exports = postRouter;
