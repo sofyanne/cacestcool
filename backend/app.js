@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 
 const authorRouter = require("./routes/authorRouter");
+const globalRouter = require("./routes/globalRouter");
 
 
 
@@ -53,7 +54,9 @@ app.use((req, res, next) => {
   next(); // Je demande à express de passer au middleware suivant.
 });
 
+
 app.use("/auteur", authorRouter);
+app.use("/", globalRouter);
 
 
 // Les routes inconnues finiront ici, je créer une erreur et je la passe à mon prochain middleware avec next();
