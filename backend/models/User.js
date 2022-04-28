@@ -15,6 +15,10 @@ const userSchema = Schema(
       type: String,
       require: true,
     },
+    password: {
+      type: String,
+      required: true,
+    },
     posts: [
       {
         type: Schema.Types.ObjectId,
