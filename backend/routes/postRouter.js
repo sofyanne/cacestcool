@@ -3,11 +3,7 @@ const PostController = require("../controllers/PostController");
 
 const postRouter = express.Router();
 
-postRouter.get("/", (req, res, next) => {
-  res.json({
-    title: "Les posts",
-  });
-});
+postRouter.get("/", PostController.getPosts);
 
 postRouter.post("/", PostController.createPost);
 
