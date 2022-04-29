@@ -11,6 +11,22 @@ exports.getPosts = async (req, res) => {
   }
 };
 
+exports.getPost = async (req, res) => {
+  if (!req.body) {
+    return res.status(422).json({
+      message: "Veuillez renseigner l'id !",
+    });
+  }
+
+  const post = Post.findById(req.body.id);
+
+  if (!post) {
+    res.status(404).json({ message: "Aucun post trouvé" });
+  } else {
+    res.status(200).json(post);
+  }
+};
+
 
 exports.createPost = async (req, res) => {
   if (!req.body) {
