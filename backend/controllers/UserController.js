@@ -1,7 +1,6 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { eventNames } = require("../models/User");
 
 exports.signupUser = async (req, res) => {
   if (!req.body) {
