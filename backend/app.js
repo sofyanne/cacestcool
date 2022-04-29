@@ -27,8 +27,8 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/user", userRouter);
-app.use("/post", postRouter);
+app.use("/users", userRouter);
+app.use("/posts", postRouter);
 app.use("/", globalRouter);
 
 
