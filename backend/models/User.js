@@ -11,6 +11,11 @@ const userSchema = Schema(
       type: String,
       require: true,
     },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
     avatar: {
       type: String,
       require: true,
