@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 exports.createUser = async (req, res) => {
   if (!req.body) {
-    res.status(422).json({
+    return res.status(422).json({
       message: "Veuillez remplir tous les champs !",
     });
   }
@@ -13,12 +13,11 @@ exports.createUser = async (req, res) => {
 
   const password = await bcrypt.hash(req.body.password, SALT_ROUNDS);
 
-    User.create({...req.body}, (error, user) => {
-    if(error) {
-        res.status(400).json({ error });
+  const user = await User.create({ ...req.body, password: password });
+  user.save((error) => {
+    if (error) {
+      return res.end(422).json({ error });
     }
-    res.status(201).json(user);
+    return res.status(201).json({ message: "L'utilisateur à été créé" });
   });
-
-
 };

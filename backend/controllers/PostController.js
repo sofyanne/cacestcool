@@ -1,5 +1,6 @@
 const Post = require("../models/Post");
 
+
 exports.getPosts = async (req, res) => {
   const posts = await Post.find();
 
@@ -10,8 +11,18 @@ exports.getPosts = async (req, res) => {
   }
 };
 
+
 exports.createPost = async (req, res) => {
+  if (!req.body) {
+    return res.status(422).json({
+      message: "Veuillez remplir tous les champs !",
+    });
+  }
   const post = await Post.create({ ...req.body });
-  await post.save();
-  res.status(201).json({ message: "Your post was created" });
+  post.save((error) => {
+    if (error) {
+      return res.status(422).json(error);
+    }
+    res.status(201).json({ message: "Votre post à été créé" });
+  });
 };
