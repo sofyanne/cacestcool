@@ -49,10 +49,31 @@ exports.deletePost = async (req, res) => {
     });
   }
   await Post.findByIdAndDelete(req.body.id, (error, post) => {
-    if(error) {
+    if (error) {
       return res.status(404).json({ message: "Aucun post à supprimer" });
     }
     return res.status(204).json("Le post à été supprimé !" + post);
   });
-  
+};
+
+exports.updatePost = async (req, res) => {
+  // Verifier si la mise à jour vient bien de l'auteur du post.
+  if (!req.body) {
+    return res.status(422).json({
+      message: "Id invalide ou inéxistant !",
+    });
+  }
+
+  const updatedPost = {
+    title: req.body.title,
+    content: req.body.content,
+    image: req.body.image
+  }
+
+  await Post.findByIdAndUpdate(req.body.id, updatedPost, (error) => {
+    if (error) {
+      return res.status(404).json({ message: "Aucun post à mettre à jour" });
+    }
+    return res.status(204).json("Le post à été mis à jour !");
+  }).clone();
 };
