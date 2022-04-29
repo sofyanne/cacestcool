@@ -54,4 +54,34 @@ exports.signupUser = async (req, res) => {
   }
 };
 
-exports.signinUser = async (req, res) => {};
+exports.signinUser = async (req, res) => {
+
+  try {
+    const {email, password } = req.body;
+
+    if(!(email && password)) {
+      res.status(400).json({message: "Les champs email et mot de passe sont requis"});
+    }
+
+    const user = await User.findOne({ email });
+
+    if (user && (await bcrypt.compare(password, user.password))) {
+
+    const token = jwt.sign(
+      { user_id: user._id, email },
+      process.env.TOKEN_KEY,
+      {
+        expiresIn: "2h",
+      }
+    );
+
+    user.token = token;
+
+    return res.status(200).json(user);
+    }
+    return res.status(400).json({message: "Email et/ou mot de passe invalide(s)"});
+  }
+  catch(error) {
+    console.log(error);
+  }
+};
