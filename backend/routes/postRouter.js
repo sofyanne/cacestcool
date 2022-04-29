@@ -6,7 +6,8 @@ const postRouter = express.Router();
 postRouter.get("/post", PostController.getPost);
 postRouter.get("/", PostController.getPosts);
 
-postRouter.post("/delete", PostController.deletePost);
-postRouter.post("/create", PostController.createPost);
+postRouter.delete("/", PostController.deletePost);
+postRouter.post("/", PostController.createPost);
+postRouter.put("/", PostController.updatePost);
 
 module.exports = postRouter;
