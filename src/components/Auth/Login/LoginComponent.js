@@ -47,6 +47,9 @@ const LoginComponent = (props) => {
       <a className="text-blue-500" href="/">
         Mot de passe perdu ?
       </a>
+      <a className="text-blue-500" href="/signup">
+        Vous n'avez pas de compte ? S'incrire.
+      </a>
     </div>
   );
 };
