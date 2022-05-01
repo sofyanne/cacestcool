@@ -84,3 +84,7 @@ exports.signinUser = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.updateUser = (req, res) => {
+  
+}
