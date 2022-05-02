@@ -4,7 +4,7 @@ import styles from "./CommentsCounter.module.css";
 const CommentsCounter = (props) => {
 
     return (
-      <>
+      <div>
           <svg
             className = {styles.icon}
             width="15"
@@ -19,7 +19,7 @@ const CommentsCounter = (props) => {
             />
           </svg>
         {props.comment || 0} Comment
-      </>
+      </div>
     );
 };
 
