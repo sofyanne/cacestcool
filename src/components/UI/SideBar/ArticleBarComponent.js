@@ -1,3 +1,5 @@
+import CommentCard from "../Cards/CommentCard";
+
 const ArticleBarComponent = (props) => {
     return (
 
@@ -23,7 +25,15 @@ const ArticleBarComponent = (props) => {
                 </p>
                 <hr className="mt-10"/>
             </div>
-            <div></div>
+            <div className="mt-5">
+                <CommentCard />
+
+                <div>
+                    <input className="mt-5 h-36 w-full rounded-xl bg-gray-100" type="text"/>
+                    <span className="text-blue-500">envoyer</span>
+                </div>
+            </div>
+            
         </div>)
 };
 
