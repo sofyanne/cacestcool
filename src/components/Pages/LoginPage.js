@@ -1,4 +1,6 @@
 import LoginComponent from "../Auth/Login/LoginComponent";
+import CommentCard from "../UI/Cards/CommentCard";
+import StatusBarComponent from "../UI/SideBar/StatusBarComponent";
 
 const LoginPage = (props) => {
   return (
