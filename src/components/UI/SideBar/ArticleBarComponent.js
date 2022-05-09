@@ -2,8 +2,7 @@ import CommentCard from "../Cards/CommentCard";
 
 const ArticleBarComponent = (props) => {
     return (
-
-        <div className="w-2/4 px-20 bg-white">
+        <div className="w-2/4 h-full overflow-scroll px-20 bg-white">
             <div className="mt-16">
                 <div className="flex justify-between w-full">
                     <p className="bg-gray-800 text-white rounded-full w-32 h-9 text-center">{props.createdAt ?? "4 avril 2022"}</p>
@@ -28,7 +27,7 @@ const ArticleBarComponent = (props) => {
             <div className="mt-5">
                 <CommentCard />
 
-                <div>
+                <div> /* Créer un composant */
                     <input className="mt-5 h-36 w-full rounded-xl bg-gray-100" type="text"/>
                     <span className="text-blue-500">envoyer</span>
                 </div>

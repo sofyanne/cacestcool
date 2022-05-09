@@ -5,8 +5,8 @@ import LikeComponent from "../Icons/LikeComponent";
 const PostCard = (props) => {
 
     return (
-        <div className="flex items-center justify-around w-4/5 hover:cursor-pointer">
-            <div className="flex w-5/6 h-36 p-3 rounded-3xl bg-white items-center justify-between hover:scale-105 shadow-2xl">
+        <div className="flex items-center justify-around w-4/5 hover:cursor-pointer ">
+            <div className="flex w-5/6 h-36 p-3 rounded-3xl bg-white items-center justify-between shadow-2xl hover:scale-105 transition ">
                 <img className="rounded-full h-20"
                      src="https://vetref.fr/wp-content/uploads/2021/02/blank-profile-picture-973460_640.png" alt=""/>
                 <div className="ml-5">
