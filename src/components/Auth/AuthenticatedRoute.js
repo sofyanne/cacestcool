@@ -6,8 +6,8 @@ const AuthenticatedRoute = ( { path, component } ) => {
     const { isAuthenticated } = useContext(Auth);
 
     return isAuthenticated ? (
-        <Route path={path} component={component} />
-    ) : (<Navigate  to="/login" />)
+    //     <Route path={path} component={component} />
+    // ) : (<Navigate  to="/login" />)
 };
 
 export default AuthenticatedRoute;
