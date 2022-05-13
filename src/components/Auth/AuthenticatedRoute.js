@@ -5,9 +5,9 @@ import {Route, navigate} from "react-router-dom";
 const AuthenticatedRoute = ( { path, component } ) => {
     const { isAuthenticated } = useContext(Auth);
 
-    return isAuthenticated ? (
+    return //isAuthenticated ? (
     //     <Route path={path} component={component} />
     // ) : (<Navigate  to="/login" />)
-};
+ };
 
 export default AuthenticatedRoute;
