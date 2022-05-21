@@ -1,19 +1,23 @@
 import {useRef, useState, useEffect} from 'react';
-
 import useAuth from "../../../hooks/useAuth";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import axios from "../../../api/axios";
 
 const LOGIN_URL = '/users/signin';
 
 const Login = () => {
     const {setAuth} = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    // const from = location.state.from.pathname || "/";
+
     const emailRef = useRef();
     const errRef = useRef();
 
     const [email, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         emailRef.current.focus();
@@ -36,7 +40,8 @@ const Login = () => {
 
             setUser('');
             setPassword('');
-            setSuccess(true);
+            navigate("/home", { replace: true })
+
         } catch (err) {
             if (!err.response.status) {
                 setErrMsg('Le serveur ne répond pas !');
@@ -57,10 +62,7 @@ const Login = () => {
     };
 
 
-    return (<>
-        {success ? (<section>
-            <h1>You are logged in!</h1>
-        </section>) : (<section className="h-1/4 w-3/5 flex flex-col items-center justify-between"
+    return (<section className="h-1/4 w-3/5 flex flex-col items-center justify-between"
                                 onSubmit={formSubmitHandler}>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <form action="">
@@ -102,8 +104,8 @@ const Login = () => {
             {/*<Link className="text-blue-500" to="/signup">*/}
             {/*    Vous n'avez pas de compte ? S'inscrire.*/}
             {/*</Link>*/}
-        </section>)}
-    </>);
+        </section>
+    );
 };
 
 export default Login;

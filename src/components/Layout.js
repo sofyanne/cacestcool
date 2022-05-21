@@ -1,10 +1,13 @@
-import { Outlet } from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 
 const Layout = () => {
     return (
-        <main className="App">
-            <Outlet />
-        </main>
+        <>
+            <Link to="/login">Se connecter</Link>
+            <main className="App">
+                <Outlet/>
+            </main>
+        </>
     );
 };
 
