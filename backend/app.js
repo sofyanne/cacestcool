@@ -17,12 +17,13 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(morgan("dev")); // Log serveur détaillés.
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, PATCH, DELETE"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept, X-Requested-With");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   next(); 
 });
 
@@ -36,13 +37,13 @@ app.use("/", globalRouter);
 app.use((req, res, next) => {
   const error = new Error("La page n'existe pas.");
   error.status = 404;
-  next(error);
+  return next(error);
 });
 
 // Configuration du code erreur et transmission de la réponse.
 app.use((error, req, res) => {
   res.status(error.status || 500);
-  res.end(error.message);
+  return res.end(error.message);
 });
 
 mongoose

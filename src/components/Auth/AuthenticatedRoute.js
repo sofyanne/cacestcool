@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import AuthProvider from "../../Context/AuthProvider";
+import AuthProvider from "../../context/AuthProvider";
 import {Route, Navigate} from "react-router-dom";
 
 const AuthenticatedRoute = ( { path, component } ) => {
