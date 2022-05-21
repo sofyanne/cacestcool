@@ -34,7 +34,8 @@ const LoginComponent = (props) => {
         setEnteredPassword("");
     }
 
-    return (<div className="h-1/4 w-3/5 flex flex-col items-center justify-between">
+    return (
+        <div className="h-1/4 w-3/5 flex flex-col items-center justify-between">
         <input
             className="w-2/4 max-w-lg min-w-[80%] h-10 p-3 rounded-full text-gray-300 focus:border-blue-400 focus:text-gray-500"
             placeholder="Email"
