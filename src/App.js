@@ -7,14 +7,14 @@ import SignupPage from "./components/Pages/SignupPage";
 import LoginPage from "./components/Pages/LoginPage";
 import HomePage from "./components/Pages/HomePage";
 import { hasAuthenticated } from "./services/AuthApi";
-import Auth from "./Context/Auth";
+import AuthProvider from "./Context/AuthProvider";
 import Login from "./components/Auth/Login/Login";
 
 function App() {
   // const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
   // return (
   //   <>
-  //   <Auth.Provider  value={{isAuthenticated}} >
+  //   <AuthProvider.Provider  value={{isAuthenticated}} >
   //   <Routes>
   //     <Route path="/signup" element={<SignupPage />} />
   //     <Route path="/" element={<LoginPage />} />
@@ -22,7 +22,7 @@ function App() {
   //     <Route path="/home" element={<HomePage />} />
   //   </Routes>
   //
-  //   </Auth.Provider>
+  //   </AuthProvider.Provider>
   //
   //   </>
   // );
